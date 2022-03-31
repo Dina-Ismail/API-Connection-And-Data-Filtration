@@ -11,7 +11,7 @@ public class ProductDetails {
     private String deliveryMessage;
 
     public String getProductDescription() {
-        return productDescription;
+        return productDescription.toString();
     }
 
     public int getCountReview() {
@@ -40,5 +40,10 @@ public class ProductDetails {
 
     public String getDeliveryMessage() {
         return deliveryMessage;
+    }
+
+    @Override
+    public String toString() {
+        return "** "+ productDescription;
     }
 }
