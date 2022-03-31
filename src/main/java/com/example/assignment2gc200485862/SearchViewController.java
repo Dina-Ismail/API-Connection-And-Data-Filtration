@@ -2,11 +2,15 @@ package com.example.assignment2gc200485862;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 
-public class SearchViewController {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class SearchViewController implements Initializable {
     @FXML
     private TextField keywordTextBox;
 
@@ -29,5 +33,10 @@ public class SearchViewController {
         }
         else
             resultCountLabel.setText("0");
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
     }
 }
