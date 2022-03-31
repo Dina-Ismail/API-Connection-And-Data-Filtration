@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.assignment2gc200485862.SearchViewController">
+   <children>
+      <HBox prefHeight="45.0" prefWidth="600.0" spacing="10.0">
+         <children>
+            <Label text="what are you looking for?" />
+            <TextField fx:id="keywordTextBox" />
+            <Label text="Results meeting your keyword:" />
+            <Label fx:id="resultCountLabel" text="Label" />
+         </children>
+         <padding>
+            <Insets left="5.0" top="5.0" />
+         </padding>
+      </HBox>
+   </children>
+</AnchorPane>
