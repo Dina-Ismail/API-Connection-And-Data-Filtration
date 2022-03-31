@@ -1,6 +1,7 @@
 package com.example.assignment2gc200485862;
 
 public class ProductDetails {
+    private String asin;
     private String productDescription;
     private int countReview;
     private String imgUrl;
@@ -9,6 +10,10 @@ public class ProductDetails {
     private boolean prime;
     private String dpUrl;
     private String deliveryMessage;
+
+    public String getAsin() {
+        return asin;
+    }
 
     public String getProductDescription() {
         return productDescription.toString();
