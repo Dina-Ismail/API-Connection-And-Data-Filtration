@@ -10,6 +10,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -48,6 +49,19 @@ public class SearchViewController implements Initializable {
         }
         else
             resultCountLabel.setText("0");
+    }
+    /**
+     * This method will be called to get all the details of the amazon product after passing to it the asin
+     */
+
+    /**
+     * This method will pass the imdb information to the movie details controller
+     */
+    @FXML
+    private void getDetails(ActionEvent event) throws IOException {
+        String asinID = resultListView.getSelectionModel().getSelectedItem().getAsin();
+        System.out.println("ASIN ID: "+asinID);
+       SceneChanger.changeScenes(event, "detail-view.fxml",asinID);
     }
 
     /**
