@@ -34,6 +34,7 @@ public class SearchViewController implements Initializable {
     /**
      * This method is triggered with the "Go for it button", where it calls the Api through the getProductFromApi method and searches for the keyword entered
      * by the user and shows a list and count of matching results.
+     * @return
      */
     @FXML
     private void searchProducts()
@@ -43,13 +44,23 @@ public class SearchViewController implements Initializable {
        // imageView.setImage(new Image("https://i.gifer.com/4V0b.gif"));
         if (apiResponse.getSearchProductDetails() != null)
         {
-            resultListView.getItems().addAll(apiResponse.getSearchProductDetails());
+          resultListView.getItems().addAll(apiResponse.getSearchProductDetails());
             resultCountLabel.setText(String.valueOf(apiResponse.getNumberOfProducts()));
             detailsButton.setVisible(true);
         }
         else
             resultCountLabel.setText("0");
+
     }
+
+//    @FXML
+//    private void getSearchProductDetails(String asinID)
+//    {
+//        String  selectedAsinID = resultListView.getSelectionModel().getSelectedItem().getAsin();
+//        System.out.println(resultListView.getSelectionModel().getSelectedItem().getProductDescription());
+//        System.out.println(asinID);
+//
+//    }
     /**
      * This method will be called to get all the details of the amazon product after passing to it the asin
      */
@@ -58,10 +69,18 @@ public class SearchViewController implements Initializable {
      * This method will pass the imdb information to the movie details controller
      */
     @FXML
-    private void getDetails(ActionEvent event) throws IOException {
-        String asinID = resultListView.getSelectionModel().getSelectedItem().getAsin();
-        System.out.println("ASIN ID: "+asinID);
-       SceneChanger.changeScenes(event, "detail-view.fxml",asinID);
+   private void getDetails(ActionEvent event) throws IOException {
+        String  selectedAsinID = resultListView.getSelectionModel().getSelectedItem().getAsin();
+        String selectedProductDesc = resultListView.getSelectionModel().getSelectedItem().getProductDescription();
+        double selectedPrice = resultListView.getSelectionModel().getSelectedItem().getPrice();
+        double selectedRetailPrice = resultListView.getSelectionModel().getSelectedItem().getRetailPrice();
+        boolean selectedPrime= resultListView.getSelectionModel().getSelectedItem().isPrime();
+        String selectedURL= resultListView.getSelectionModel().getSelectedItem().getDpUrl();
+        String selectedDeliveryMessage= resultListView.getSelectionModel().getSelectedItem().getDeliveryMessage();
+        String selectedRating=resultListView.getSelectionModel().getSelectedItem().getProductRating();
+
+
+        SceneChanger.changeScenes(event, "detail-view.fxml",selectedRating,selectedAsinID,selectedProductDesc,selectedPrice,selectedRetailPrice,selectedPrime,selectedURL,selectedDeliveryMessage);
     }
 
     /**

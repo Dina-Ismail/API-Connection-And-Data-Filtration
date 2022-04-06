@@ -10,6 +10,7 @@ public class ProductDetails {
     private boolean prime;
     private String dpUrl;
     private String deliveryMessage;
+    private double retailPrice;
 
     public String getAsin() {
         return asin;
@@ -37,6 +38,10 @@ public class ProductDetails {
 
     public boolean isPrime() {
         return prime;
+    }
+
+    public double getRetailPrice() {
+        return retailPrice;
     }
 
     public String getDpUrl() {
