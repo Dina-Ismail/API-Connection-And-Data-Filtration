@@ -5,7 +5,7 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="397.0" prefWidth="828.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.assignment2gc200485862.SearchViewController">
+<AnchorPane prefHeight="400.0" prefWidth="828.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.assignment2gc200485862.SearchViewController">
    <children>
       <HBox alignment="CENTER" prefHeight="45.0" prefWidth="817.0" spacing="10.0">
          <children>
@@ -39,7 +39,11 @@
          <right>
             <ImageView fx:id="imageView" fitHeight="273.0" fitWidth="230.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER" />
          </right>
+         <top>
+            <Label fx:id="counterLabel" text="Label" visible="false" BorderPane.alignment="CENTER" />
+         </top>
       </BorderPane>
-      <Label fx:id="errorMessage" layoutX="26.0" layoutY="353.0" text="Label" />
+      <Button fx:id="GoToNextPageButton" layoutX="488.0" layoutY="353.0" mnemonicParsing="false" onAction="#searchProducts" text="Go to Next Page" />
+      <Button fx:id="PeviousPageButton" layoutX="274.0" layoutY="353.0" mnemonicParsing="false" onAction="#getPreviousPage" text="Go to Previous Page" />
    </children>
 </AnchorPane>

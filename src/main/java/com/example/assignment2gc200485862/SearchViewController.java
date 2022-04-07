@@ -22,14 +22,21 @@ public class SearchViewController implements Initializable {
     private Label resultCountLabel;
 
     @FXML
+    private Label counterLabel;
+
+    @FXML
     private ListView<ProductDetails> resultListView;
 
     @FXML
     private ImageView imageView;
 
-
     @FXML
     private Button detailsButton;
+    @FXML
+    private Button PeviousPageButton;
+
+    private int counter;
+    private String keyword;
 
     /**
      * This method is triggered with the "Go for it button", where it calls the Api through the getProductFromApi method and searches for the keyword entered
@@ -37,50 +44,67 @@ public class SearchViewController implements Initializable {
      * @return
      */
     @FXML
+
     private void searchProducts()
-    {
-        ApiResponse apiResponse = ApiUtility.getProductsFromApi(keywordTextBox.getText(),1);
+    {    keyword = keywordTextBox.getText();
+        ApiResponse apiResponse = ApiUtility.getProductsFromApi(keywordTextBox.getText(),counter);
         resultListView.getItems().clear();
-       // imageView.setImage(new Image("https://i.gifer.com/4V0b.gif"));
         if (apiResponse.getSearchProductDetails() != null)
         {
-          resultListView.getItems().addAll(apiResponse.getSearchProductDetails());
+            imageView.setVisible(false);
+            resultListView.getSelectionModel().selectedItemProperty().addListener(
+                    (obs, oldProductSelected, newProductSelected) -> {
+                        try {
+                            imageView.setVisible(true);
+                            imageView.setImage(new Image(newProductSelected.getImgUrl()));
+                        }
+                        catch (Exception e)
+                        {
+                            imageView.setVisible(false);
+                            imageView.setImage(new Image("https://www.publicdomainpictures.net/pictures/280000/velka/not-found-image-15383864787lu.jpg"));
+                        }
+                    });
+            resultListView.getItems().addAll(apiResponse.getSearchProductDetails());
             resultCountLabel.setText(String.valueOf(apiResponse.getNumberOfProducts()));
             detailsButton.setVisible(true);
+
+            counter++;
+            counterLabel.setText(String.valueOf(counter));
+            if (counter>2)
+            {
+                PeviousPageButton.setVisible(true);
+            }
+            //this is the page number which will be sent next time.//i need to check how many result pages are they to disable the button
+            System.out.println("counter"+counter);
+            System.out.println("counter label"+counterLabel.getText());
         }
         else
             resultCountLabel.setText("0");
 
     }
-
-//    @FXML
-//    private void getSearchProductDetails(String asinID)
-//    {
-//        String  selectedAsinID = resultListView.getSelectionModel().getSelectedItem().getAsin();
-//        System.out.println(resultListView.getSelectionModel().getSelectedItem().getProductDescription());
-//        System.out.println(asinID);
-//
-//    }
     /**
-     * This method will be called to get all the details of the amazon product after passing to it the asin
-     */
-
-    /**
-     * This method will pass the imdb information to the movie details controller
+     * This method will be trigger by the "Yayy Show me the details!" button and will run the changeScene and pass the selected product object
+     * with the new fxml file that needs to be launched.
      */
     @FXML
    private void getDetails(ActionEvent event) throws IOException {
-        String  selectedAsinID = resultListView.getSelectionModel().getSelectedItem().getAsin();
-        String selectedProductDesc = resultListView.getSelectionModel().getSelectedItem().getProductDescription();
-        double selectedPrice = resultListView.getSelectionModel().getSelectedItem().getPrice();
-        double selectedRetailPrice = resultListView.getSelectionModel().getSelectedItem().getRetailPrice();
-        boolean selectedPrime= resultListView.getSelectionModel().getSelectedItem().isPrime();
-        String selectedURL= resultListView.getSelectionModel().getSelectedItem().getDpUrl();
-        String selectedDeliveryMessage= resultListView.getSelectionModel().getSelectedItem().getDeliveryMessage();
-        String selectedRating=resultListView.getSelectionModel().getSelectedItem().getProductRating();
+        ProductDetails products = resultListView.getSelectionModel().getSelectedItem();
+        System.out.println(products.getProductDescription());
+        SceneChanger.changeScenes(event,"detail-view.fxml",products);
+    }
 
-
-        SceneChanger.changeScenes(event, "detail-view.fxml",selectedRating,selectedAsinID,selectedProductDesc,selectedPrice,selectedRetailPrice,selectedPrime,selectedURL,selectedDeliveryMessage);
+    /**
+     *This methods gets the previous page of results by calling the searchProduct methiod and updatinh the global variable bounter with the correct
+     * value of page number
+     */
+    @FXML
+    private void getPreviousPage(ActionEvent event) throws IOException {
+        counter-=2;
+        searchProducts();
+        counterLabel.setText(String.valueOf(counter));
+        System.out.println(keyword);
+        System.out.println("counter label" + counterLabel.getText());
+        System.out.println("counter"+counter);
     }
 
     /**
@@ -89,18 +113,11 @@ public class SearchViewController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        counter = 1;
+        counterLabel.setText(String.valueOf(counter));
+        PeviousPageButton.setVisible(false);
         resultCountLabel.setText("");
         detailsButton.setVisible(false);
-        resultListView.getSelectionModel().selectedItemProperty().addListener(
-                (obs, oldProductSelected, newProductSelected) -> {
-                    try {
-                        imageView.setImage(new Image(newProductSelected.getImgUrl()));
-                    }
-                    catch (IllegalArgumentException e)
-                    {
-                        imageView.setImage(new Image("https://www.publicdomainpictures.net/pictures/280000/velka/not-found-image-15383864787lu.jpg"));
-                    }
-                });
+
     }
 }
