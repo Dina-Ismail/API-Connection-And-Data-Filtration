@@ -38,13 +38,12 @@ public class DetailViewController {
     /**This method will load product object information to the right controls after
      *
      */
-
     public void loadDetails(ProductDetails products)
-
     {
         product=products;
         try{
             DescriptionLabel.setText(products.getProductDescription());
+            DescriptionLabel.autosize();
         }
         catch(Exception e)
         {
@@ -71,7 +70,6 @@ public class DetailViewController {
         {
             ProductRating.setText("No Rating Available");
         }
-
         try {
             if (products.isPrime()==true)
                 PrimeCB.setSelected(true);
@@ -81,7 +79,6 @@ public class DetailViewController {
         catch (Exception e)
         {
             PrimeCB.setSelected(false);
-
         }
         try{
             DeliverymsgLabel.setText(products.getDeliveryMessage());
@@ -96,7 +93,6 @@ public class DetailViewController {
             }
             else
                 URLLabel.setText("No URL to display");
-
         }
         catch(Exception e)
         {
@@ -121,7 +117,6 @@ public class DetailViewController {
     private void loadSearchView(ActionEvent event) throws IOException {
         SceneChanger.changeScenes(event, "search-view.fxml",product);
     }
-
     /** This method makes the hyperlink opens the link to the product URL
      */
     @FXML
@@ -134,5 +129,4 @@ public class DetailViewController {
             MessageLabel.setText("URL is not accessible, please try to copy and paste it in your browser");
         }
     }
-
 }

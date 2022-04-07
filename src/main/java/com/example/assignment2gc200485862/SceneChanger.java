@@ -13,9 +13,7 @@ public class SceneChanger {
 
        try {
             FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource(fxmlFile));
-
             Scene scene = new Scene(fxmlLoader.load());
-
             //get the controller from the destination
             DetailViewController controller = fxmlLoader.getController();
            controller.loadDetails(products);
@@ -26,7 +24,6 @@ public class SceneChanger {
         }
         catch(IOException e)
         {
-
             System.out.println("Something went wrong while changing the scenes");
         }
     }

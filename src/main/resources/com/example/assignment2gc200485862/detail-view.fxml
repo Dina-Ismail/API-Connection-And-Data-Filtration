@@ -5,25 +5,25 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="828.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.assignment2gc200485862.DetailViewController">
+<AnchorPane prefHeight="400.0" prefWidth="828.0" styleClass="root" stylesheets="@stylesheet.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.assignment2gc200485862.DetailViewController">
    <children>
       <BorderPane prefHeight="400.0" prefWidth="828.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
             <Label fx:id="TitleLabel" BorderPane.alignment="CENTER" />
          </top>
          <left>
-            <GridPane prefHeight="332.0" prefWidth="650.0" BorderPane.alignment="CENTER">
+            <GridPane prefHeight="319.0" prefWidth="573.0" BorderPane.alignment="CENTER">
               <columnConstraints>
                 <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="199.0" minWidth="10.0" prefWidth="113.33334096272786" />
                 <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="481.00000762939453" minWidth="10.0" prefWidth="455.3333257039388" />
               </columnConstraints>
               <rowConstraints>
-                  <RowConstraints maxHeight="187.66666666666666" minHeight="10.0" prefHeight="177.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="110.0" minHeight="0.0" prefHeight="33.33333333333334" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="65.00001525878906" minHeight="0.0" prefHeight="35.33333333333334" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="96.0" minHeight="10.0" prefHeight="36.99998474121094" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="77.0" minHeight="10.0" prefHeight="19.333333333333314" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="61.0" minHeight="10.0" prefHeight="25.333333333333314" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="187.66666666666666" minHeight="10.0" prefHeight="91.33333333333334" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="110.0" minHeight="0.0" prefHeight="46.33333333333333" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="91.0" minHeight="0.0" prefHeight="51.333333333333314" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="96.0" minHeight="10.0" prefHeight="48.33333333333334" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="77.0" minHeight="10.0" prefHeight="23.666666666666686" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="61.0" minHeight="10.0" prefHeight="38.333333333333314" vgrow="SOMETIMES" />
                 <RowConstraints maxHeight="40.0" minHeight="10.0" prefHeight="29.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
@@ -39,7 +39,7 @@
                   <Label fx:id="ProductRating" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                   <Label fx:id="DeliverymsgLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="6" />
                   <CheckBox fx:id="PrimeCB" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                  <TextArea fx:id="DescriptionLabel" editable="false" minHeight="-Infinity" prefHeight="179.0" prefWidth="425.0" wrapText="true" GridPane.columnIndex="1" />
+                  <TextArea fx:id="DescriptionLabel" editable="false" minHeight="-Infinity" prefHeight="90.0" prefWidth="457.0" styleClass="textarea" stylesheets="@stylesheet.css" wrapText="true" GridPane.columnIndex="1" GridPane.hgrow="NEVER" GridPane.vgrow="ALWAYS" />
                   <Hyperlink fx:id="URLLabel" onAction="#openLink" text="Hyperlink" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                </children>
             </GridPane>
@@ -51,7 +51,7 @@
             <ImageView fx:id="imageView" fitHeight="318.0" fitWidth="228.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER" />
          </right>
          <bottom>
-            <Button mnemonicParsing="false" text="Get Back to your results" BorderPane.alignment="BOTTOM_RIGHT" />
+            <Button mnemonicParsing="false" styleClass="button1" stylesheets="@stylesheet.css" text="Get Back to your results" BorderPane.alignment="BOTTOM_RIGHT" />
          </bottom>
          <center>
             <Label fx:id="MessageLabel" text="Label" BorderPane.alignment="BOTTOM_RIGHT" />

@@ -5,13 +5,25 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="828.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.assignment2gc200485862.SearchViewController">
+<AnchorPane prefHeight="456.0" prefWidth="828.0" styleClass="root" stylesheets="@stylesheet.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.assignment2gc200485862.SearchViewController">
    <children>
-      <HBox alignment="CENTER" prefHeight="45.0" prefWidth="817.0" spacing="10.0">
+      <HBox alignment="CENTER" layoutX="12.0" layoutY="41.0" prefHeight="33.0" prefWidth="825.0" spacing="20.0">
+         <children>
+            <Label prefHeight="17.0" prefWidth="108.0" text="Filter By:" />
+            <CheckBox fx:id="PrimeCB" mnemonicParsing="false" prefHeight="19.0" prefWidth="137.0" text="Prime Only" />
+            <RadioButton fx:id="Price30" mnemonicParsing="false" prefHeight="19.0" prefWidth="204.0" text="Price between 0 &amp; 30">
+               <toggleGroup>
+                  <ToggleGroup fx:id="yes" />
+               </toggleGroup></RadioButton>
+            <RadioButton fx:id="Price60" mnemonicParsing="false" prefHeight="19.0" prefWidth="214.0" text="Price between 30 &amp; 60" toggleGroup="$yes" />
+            <RadioButton fx:id="Price100" mnemonicParsing="false" prefHeight="19.0" prefWidth="242.0" text="Price between 60 &amp; 100" toggleGroup="$yes" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="33.0" prefWidth="817.0" spacing="10.0">
          <children>
             <Label text="what are you looking for?" />
             <TextField fx:id="keywordTextBox" />
-            <Button mnemonicParsing="false" onAction="#searchProducts" text="Go for it!" />
+            <Button mnemonicParsing="false" onAction="#searchProducts" styleClass="button1" stylesheets="@stylesheet.css" text="Go for it!" />
             <Label alignment="BOTTOM_LEFT" text="Matching Results:">
                <HBox.margin>
                   <Insets left="50.0" />
@@ -25,7 +37,7 @@
             <Insets left="5.0" top="5.0" />
          </padding>
       </HBox>
-      <BorderPane layoutX="14.0" layoutY="54.0" prefHeight="287.0" prefWidth="803.0">
+      <BorderPane layoutX="5.0" layoutY="74.0" prefHeight="364.0" prefWidth="817.0" styleClass="root" stylesheets="@stylesheet.css">
          <center>
             <ListView fx:id="resultListView" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
          </center>
@@ -37,13 +49,22 @@
             </Button>
          </bottom>
          <right>
-            <ImageView fx:id="imageView" fitHeight="273.0" fitWidth="230.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER" />
+            <StackPane BorderPane.alignment="CENTER">
+               <children>
+                  <ProgressIndicator fx:id="ProgressIndicator" />
+                  <ImageView fx:id="imageView" fitHeight="273.0" fitWidth="230.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </StackPane>
          </right>
          <top>
             <Label fx:id="counterLabel" text="Label" visible="false" BorderPane.alignment="CENTER" />
          </top>
       </BorderPane>
-      <Button fx:id="GoToNextPageButton" layoutX="488.0" layoutY="353.0" mnemonicParsing="false" onAction="#searchProducts" text="Go to Next Page" />
-      <Button fx:id="PeviousPageButton" layoutX="274.0" layoutY="353.0" mnemonicParsing="false" onAction="#getPreviousPage" text="Go to Previous Page" />
+      <HBox alignment="BOTTOM_RIGHT" layoutX="100.0" layoutY="415.0" prefHeight="33.0" prefWidth="496.0" spacing="10.0">
+         <children>
+            <Button fx:id="PeviousPageButton" mnemonicParsing="false" onAction="#getPreviousPage" styleClass="button1" stylesheets="@stylesheet.css" text="Go to Previous Page" />
+            <Button fx:id="GoToNextPageButton" mnemonicParsing="false" onAction="#searchProducts" styleClass="button1" stylesheets="@stylesheet.css" text="Go to Next Page" />
+         </children>
+      </HBox>
    </children>
 </AnchorPane>

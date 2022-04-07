@@ -1,0 +1,24 @@
+.root {
+    -fx-font-size: 14px;
+    -fx-font-family: sans-serif;
+    -fx-background-color: #ffffff;
+    -fx-background-color: linear-gradient(to right,#FFD580, #ffffff);
+    -fx-background-radius: 7px 7px 7px 7px;
+    -fx-padding: 10 10 10 10;
+}
+.panel{
+    -fx-background-color: linear-gradient(to right,#FFD580, #ffffe0);
+    -fx-background-radius: 7px 7px 0px 0px;
+    -fx-padding: 0 0 5px 0;
+}
+.button1{
+    -fx-border-radius: 16px;
+    -fx-background-color: lightblue;
+    -fx-text-fill: black;
+}
+.button1:hover {
+    -fx-background-color: orange;
+    -fx-text-fill: white;
+}
+
+.textarea { resize: vertical; }
