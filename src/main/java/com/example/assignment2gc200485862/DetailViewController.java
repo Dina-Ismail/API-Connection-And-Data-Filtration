@@ -115,7 +115,7 @@ public class DetailViewController {
      */
     @FXML
     private void loadSearchView(ActionEvent event) throws IOException {
-        SceneChanger.changeScenes(event, "search-view.fxml",product);
+        SceneChanger.ResultViewchangeScenes(event, "search-view.fxml");
     }
     /** This method makes the hyperlink opens the link to the product URL
      */

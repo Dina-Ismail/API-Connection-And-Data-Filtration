@@ -27,4 +27,13 @@ public class SceneChanger {
             System.out.println("Something went wrong while changing the scenes");
         }
     }
+
+    public static void ResultViewchangeScenes(ActionEvent event, String fxmlFileName) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource(fxmlFileName));
+        Scene scene = new Scene(fxmlLoader.load());
+        //derive stage object from the action event
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+    }
 }

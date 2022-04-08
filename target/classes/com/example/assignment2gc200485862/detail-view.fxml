@@ -51,7 +51,7 @@
             <ImageView fx:id="imageView" fitHeight="318.0" fitWidth="228.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER" />
          </right>
          <bottom>
-            <Button mnemonicParsing="false" styleClass="button1" stylesheets="@stylesheet.css" text="Get Back to your results" BorderPane.alignment="BOTTOM_RIGHT" />
+            <Button mnemonicParsing="false" onAction="#loadSearchView" styleClass="button1" stylesheets="@stylesheet.css" text="Do Another Search!" BorderPane.alignment="BOTTOM_RIGHT" />
          </bottom>
          <center>
             <Label fx:id="MessageLabel" text="Label" BorderPane.alignment="BOTTOM_RIGHT" />

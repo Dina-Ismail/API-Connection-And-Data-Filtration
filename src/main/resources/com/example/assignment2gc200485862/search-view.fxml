@@ -42,17 +42,20 @@
             <ListView fx:id="resultListView" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
          </center>
          <bottom>
-            <Button fx:id="detailsButton" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#getDetails" text="Yaay! Show me the details!" visible="false" BorderPane.alignment="CENTER_RIGHT">
+            <Button fx:id="detailsButton" alignment="BOTTOM_RIGHT" mnemonicParsing="false" onAction="#getDetails" text="Yaay! Show me the details!" BorderPane.alignment="BOTTOM_RIGHT">
                <BorderPane.margin>
                   <Insets />
                </BorderPane.margin>
+               <opaqueInsets>
+                  <Insets top="-1.0" />
+               </opaqueInsets>
             </Button>
          </bottom>
          <right>
-            <StackPane BorderPane.alignment="CENTER">
+            <StackPane prefHeight="245.0" prefWidth="230.0" BorderPane.alignment="CENTER">
                <children>
                   <ProgressIndicator fx:id="ProgressIndicator" />
-                  <ImageView fx:id="imageView" fitHeight="273.0" fitWidth="230.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="imageView" fitHeight="252.0" fitWidth="230.0" pickOnBounds="true" preserveRatio="true" />
                </children>
             </StackPane>
          </right>
